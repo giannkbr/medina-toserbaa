@@ -29,14 +29,29 @@
 
      <!-- Nav Item - Pages Collapse Menu -->
      <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+             aria-controls="collapseTwo">
              <i class="fas fa-fw fa-cog"></i>
              <span>Master Karyawan</span>
          </a>
          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <!-- <h6 class="collapse-header">Karyawan</h6> -->
-                 <a class="collapse-item" href="#">Data Karyawan</a>
+                 <a class="collapse-item" href="#"><i class="fas fa-fw fa-users"></i> Data Karyawan</a>
+             </div>
+         </div>
+     </li>
+
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+             aria-controls="collapseThree">
+             <i class="fas fa-fw fa-cog"></i>
+             <span>Master Absensi</span>
+         </a>
+         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <!-- <h6 class="collapse-header">Karyawan</h6> -->
+                 <a class="collapse-item" href="#">  <i class="fas fa-fw fa-table"></i>Rekap Absensi</a>
              </div>
          </div>
      </li>
@@ -46,14 +61,14 @@
 
      <!-- Heading -->
      <div class="sidebar-heading">
-        Settings
+         Settings
      </div>
 
-     <!-- Nav Item - Tables -->
+     <!-- Nav Item -->    
      <li class="nav-item">
-         <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+         <a class="nav-link" href="#">
              <i class="fas fa-fw fa-table"></i>
-             <span>Logout</span></a>
+             <span>Database</span></a>
      </li>
 
      <!-- Divider -->
