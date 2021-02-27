@@ -6,7 +6,7 @@
          <div class="sidebar-brand-icon rotate-n-15">
              <i class="fas fa-laugh-wink"></i>
          </div>
-         <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+         <div class="sidebar-brand-text mx-3">TOSERBA</div>
      </a>
 
      <!-- Divider -->
@@ -37,7 +37,7 @@
          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <!-- <h6 class="collapse-header">Karyawan</h6> -->
-                 <a class="collapse-item" href="#"><i class="fas fa-fw fa-users"></i> Data Karyawan</a>
+                 <a class="collapse-item" href="<?= base_url('masterkaryawan') ?>"><i class="fas fa-fw fa-users"></i> Data Karyawan</a>
              </div>
          </div>
      </li>
@@ -52,6 +52,7 @@
              <div class="bg-white py-2 collapse-inner rounded">
                  <!-- <h6 class="collapse-header">Karyawan</h6> -->
                  <a class="collapse-item" href="#">  <i class="fas fa-fw fa-table"></i>Rekap Absensi</a>
+                 <a class="collapse-item" href="<?= base_url('masterabsensi') ?>"><i class="fas fa-fw fa-users"></i>Ambil Qr</a>
              </div>
          </div>
      </li>
