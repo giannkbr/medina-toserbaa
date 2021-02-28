@@ -26,7 +26,7 @@ class Setting extends CI_Controller {
         // the rules
         $rules = [
             'format' => 'zip',
-            'filename' => 'backup.sql'
+            'filename' => 'medina.sql'
         ];
 
         $backup =& $this->dbutil->backup($rules);

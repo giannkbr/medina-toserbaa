@@ -87,6 +87,8 @@
 <script src="<?= base_url('assets/') ?>js/demo/chart-area-demo.js"></script>
 <script src="<?= base_url('assets/') ?>js/demo/chart-pie-demo.js"></script>
 
+
+
 <script>
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
@@ -107,6 +109,52 @@
         });
     });
 </script>
+<script>
+    <?= $this->session->flashdata('messageAlert'); ?>
+</script>
+
+<script type="text/javascript">
+    var d = new Date();
+    var hours = d.getHours();
+    var minutes = d.getMinutes();
+    var seconds = d.getSeconds();
+    var hari = d.getDay();
+    var namaHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    hariIni = namaHari[hari];
+    var tanggal = ("0" + d.getDate()).slice(-2);
+    var month = new Array();
+    month[0] = "Januari";
+    month[1] = "Februari";
+    month[2] = "Maret";
+    month[3] = "April";
+    month[4] = "Mei";
+    month[5] = "Juni";
+    month[6] = "Juli";
+    month[7] = "Agustus";
+    month[8] = "September";
+    month[9] = "Oktober";
+    month[10] = "Nopember";
+    month[11] = "Desember";
+    var bulan = month[d.getMonth()];
+    var tahun = d.getFullYear();
+    var date = Date.now(),
+        second = 1000;
+
+    function pad(num) {
+        return ('0' + num).slice(-2);
+    }
+
+    function updateClock() {
+        var clockEl = document.getElementById('clock'),
+            dateObj;
+        date += second;
+        dateObj = new Date(date);
+        clockEl.innerHTML = '' + hariIni + '.  ' + tanggal + ' ' + bulan + ' ' + tahun + '. ' + pad(dateObj.getHours()) + ':' + pad(dateObj.getMinutes()) + ':' + pad(dateObj.getSeconds());
+    }
+    setInterval(updateClock, second);
+</script>
+
+
 
 </body>
 

@@ -52,9 +52,11 @@
          <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <!-- <h6 class="collapse-header">Karyawan</h6> -->
-                 <a class="collapse-item" href="#">  <i class="fas fa-fw fa-table"></i>Rekap Absensi</a>
+                 <a class="collapse-item" href="<?= base_url('masterabsensi/historiabsensi') ?>">  <i class="fas fa-fw fa-table"></i>histori Absensi</a>
                  <a class="collapse-item" href="<?= base_url('masterabsensi') ?>"><i class="fas fa-fw fa-users"></i>Ambil Qr</a>
+                 <a class="collapse-item" href="<?= base_url('masterabsensi/scanqr') ?>"><i class="fas fa-fw fa-users"></i>Scan Qr</a>
              </div>
+
          </div>
      </li>
 
@@ -68,7 +70,7 @@
 
      <!-- Nav Item -->    
      <li class="nav-item">
-         <a class="nav-link" href="<?= base_url('setting-db'); ?>">
+         <a class="nav-link" href="#">
              <i class="fas fa-fw fa-table"></i>
              <span>Database</span></a>
      </li>

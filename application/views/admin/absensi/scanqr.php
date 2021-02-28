@@ -59,11 +59,11 @@
 </div>
 <!-- End of Main Content -->
 
-<script type="text/javascript" src="<?php echo base_url()?>assets/plugins/zxing/zxing.min.js"></script>
+<script type="text/javascript" src="<?= base_url('assets/')?>plugins/zxing/zxing.min.js"></script>
 <script type="text/javascript">
     window.addEventListener('load', function () {
         let selectedDeviceId;
-        let audio = new Audio("assets/audio/beep.mp3");
+        let audio = new Audio("<?= base_url('assets/')?>audio/beep.mp3");
         const codeReader = new ZXing.BrowserQRCodeReader()
         console.log('ZXing code reader initialized')
         codeReader.getVideoInputDevices()

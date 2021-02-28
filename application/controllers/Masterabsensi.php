@@ -10,6 +10,21 @@ class Masterabsensi extends CI_Controller
         is_logged_in();
     }
 
+    public function messageAlert($type, $title)
+    {
+        $messageAlert = "const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        Toast.fire({
+            type: '" . $type . "',
+            title: '" . $title . "'
+        });";
+        return $messageAlert;
+    }
+
 
     public function index()
     {
@@ -81,19 +96,15 @@ class Masterabsensi extends CI_Controller
         }
     }
 
-    public function messageAlert($type, $title)
+     public function historiabsensi()
     {
-        $messageAlert = "const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-        Toast.fire({
-            type: '" . $type . "',
-            title: '" . $title . "'
-        });";
-        return $messageAlert;
+        $this->load->model('M_absen');
+        $data['title'] = 'histori Absensi';
+        $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
+        $data['absensi'] = $this->M_absen->tampil_data()->result_array();
+        $this->load->view('admin/absensi/historiabsensi', $data);
     }
+
+    
 
 }
