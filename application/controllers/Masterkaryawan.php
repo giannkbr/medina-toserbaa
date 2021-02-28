@@ -31,57 +31,57 @@ class Masterkaryawan extends CI_Controller
      $this->load->view('admin/Karyawan/tambahkaryawan', $data);
  }
 
- public function tambahkaryawanAct()
- {
-    $this->form_validation->set_rules('nama', 'Nama', 'required|trim|min_length[4]', [
-        'required' => 'Harap isi kolom nama.',
-        'min_length' => 'Nama terlalu pendek.',
-    ]);
-    
-    $this->form_validation->set_rules('username', 'Username', 'required|trim|min_length[4]', [
-        'required' => 'Harap isi kolom username.',
-        'min_length' => 'Username terlalu pendek.',
-    ]);
+    public function tambahkaryawanAct()
+    {
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim|min_length[4]', [
+            'required' => 'Harap isi kolom nama.',
+            'min_length' => 'Nama terlalu pendek.',
+        ]);
+        
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|min_length[4]', [
+            'required' => 'Harap isi kolom username.',
+            'min_length' => 'Username terlalu pendek.',
+        ]);
 
-    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]|matches[retype_password]', [
-        'required' => 'Harap isi kolom Password.',
-        'matches' => 'Password tidak sama!',
-        'min_length' => 'Password terlalu pendek',
-    ]);
-    $this->form_validation->set_rules('retype_password', 'Password', 'required|trim|matches[password]', [
-        'matches' => 'Password tidak sama!',
-    ]);
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]|matches[retype_password]', [
+            'required' => 'Harap isi kolom Password.',
+            'matches' => 'Password tidak sama!',
+            'min_length' => 'Password terlalu pendek',
+        ]);
+        $this->form_validation->set_rules('retype_password', 'Password', 'required|trim|matches[password]', [
+            'matches' => 'Password tidak sama!',
+        ]);
 
-    if ($this->form_validation->run() == false) {
-        $this->load->view('admin/karyawan/tambahkaryawan');
-    } else {
-        $email = $this->input->post('username', true);
-        $data = [
-            'nama' => htmlspecialchars($this->input->post('nama', true)),
-            'username' => htmlspecialchars($email),
-            'image' => 'default.jpg',
-            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-            'is_active' => 1,
-        ];
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/karyawan/tambahkaryawan');
+        } else {
+            $email = $this->input->post('username', true);
+            $data = [
+                'nama' => htmlspecialchars($this->input->post('nama', true)),
+                'username' => htmlspecialchars($email),
+                'image' => 'default.jpg',
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'is_active' => 1,
+            ];
 
-            //siapkan token
+                //siapkan token
 
-            // $token = base64_encode(random_bytes(32));
-            // $user_token = [
-            //     'email' => $email,
-            //     'token' => $token,
-            //     'date_created' => time(),
-            // ];
+                // $token = base64_encode(random_bytes(32));
+                // $user_token = [
+                //     'email' => $email,
+                //     'token' => $token,
+                //     'date_created' => time(),
+                // ];
 
-        $this->db->insert('karyawan', $data);
-            // $this->db->insert('token', $user_token);
+            $this->db->insert('karyawan', $data);
+                // $this->db->insert('token', $user_token);
 
-            // $this->_sendEmail($token, 'verify');
+                // $this->_sendEmail($token, 'verify');
 
-        $this->session->set_flashdata('success-reg', 'Berhasil!');
-        redirect(base_url('Masterkaryawan'));
+            $this->session->set_flashdata('success-reg', 'Berhasil!');
+            redirect(base_url('Masterkaryawan'));
+        }
     }
-}
 
 public function hapuskaryawan($id)
 {

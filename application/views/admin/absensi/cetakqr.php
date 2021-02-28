@@ -9,13 +9,12 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
+        <h1 class="m-0 font-weight-bold text-primary"><?= $title ?></h1>
     </div>
 
-    <img class="img-responsive" src="<?php echo base_url('assets/img/qrcode/') .  $karyawan['username']  . 'code.png'; ?>" />
-
-
-
+   <div>
+   <img class="img-responsive" src="<?php echo base_url('assets/img/qrcode/') .  $karyawan['username']  . 'code.png'; ?>" />
+   </div>
 </div>
 <!-- /.container-fluid -->
 

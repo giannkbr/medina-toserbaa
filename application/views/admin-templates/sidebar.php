@@ -38,6 +38,7 @@
              <div class="bg-white py-2 collapse-inner rounded">
                  <!-- <h6 class="collapse-header">Karyawan</h6> -->
                  <a class="collapse-item" href="<?= base_url('masterkaryawan') ?>"><i class="fas fa-fw fa-users"></i> Data Karyawan</a>
+                 <a class="collapse-item" href="<?= base_url('masterjabatan') ?>"><i class="fas fa-fw fa-users"></i> Data Jabatan</a>
              </div>
          </div>
      </li>
@@ -67,7 +68,7 @@
 
      <!-- Nav Item -->    
      <li class="nav-item">
-         <a class="nav-link" href="#">
+         <a class="nav-link" href="<?= base_url('setting-db'); ?>">
              <i class="fas fa-fw fa-table"></i>
              <span>Database</span></a>
      </li>

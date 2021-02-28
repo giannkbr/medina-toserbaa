@@ -35,7 +35,7 @@
                                             <td><?= $k['nama'] ?></td>
                                             <td><?= $k['username'] ?></td>
                                             <td><img src="<?= base_url('assets/images/') . $k['image']; ?>" class="img-fluid img-thumbnail" width="200" height="40" alt="..."></td>
-                                            <td><a href="<?php echo site_url('masterabsensi/cetakqr/' . $k['id']); ?>" class="badge badge-info"><i class="fas fa-edit"></i>Cetak QR</a>
+                                            <td><a href="<?php echo site_url('masterabsensi/cetakqr/' . $k['id']); ?>" class="btn btn-info"><i class="fas fa-edit"></i>Cetak QR</a>
                                         </tr>
 
                                     <?php } ?>
