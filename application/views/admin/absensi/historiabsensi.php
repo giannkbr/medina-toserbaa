@@ -22,7 +22,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>username</th>
+                            <th>Nama</th>
                             <th>Jabatan</th>
                             <th>Tanggal</th>
                             <th>Jam Masuk</th>
@@ -35,7 +35,7 @@
                         <?php foreach ($absensi as $a) { ?>
                             <tr>
                                 <td><?= $a['id_absen'] ?></td>
-                                <td><?= $a['username'] ?></td>
+                                <td><?= $a['nama'] ?></td>
                                 <td><?= $a['nama_jabatan'] ?></td>
                                 <td><?= $a['tanggal'] ?></td>
                                 <td><?= $a['jam_masuk'] ?></td>
