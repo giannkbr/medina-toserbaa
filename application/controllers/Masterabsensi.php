@@ -115,6 +115,18 @@ class Masterabsensi extends CI_Controller
         $this->load->view('admin/absensi/historiabsensi', $data);
     }
 
+
+    public function rekapabsensi()
+    {
+        $this->load->model('M_absen');
+        $this->load->model('M_karyawan');
+        $data['title'] = 'rekap Absensi';
+        $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
+        $data['karyawan'] = $this->M_karyawan->tampil_data()->result_array();
+        $data['absensi'] = $this->M_absen->tampil_data()->result_array();
+        $this->load->view('admin/absensi/rekapabsensi', $data);
+    }
+
     
 
 }

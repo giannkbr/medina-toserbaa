@@ -79,4 +79,11 @@ class M_absen extends CI_Model
             ->where('tanggal', $tgl)
             ->update('absen', $data);
     }
+
+    public function bulan()
+    {
+        $this->db->query("SELECT MONTH() FROM absensi");
+
+    }
 }
+
