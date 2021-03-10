@@ -87,7 +87,7 @@ class Masterabsensi extends CI_Controller
             redirect($_SERVER['HTTP_REFERER']);
             return false;
 
-        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && date('h:i:s') >='08:00:00' && date('h:i:s') <='11:00:00') {
+        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && date('h:i:s') >='08:00:00' && date('h:i:s') <='16:00:00') {
             $this->session->set_flashdata('messageAlert', $this->messageAlert('warning', 'sudah absen masuk'));
             redirect($_SERVER['HTTP_REFERER']);
             return false;
