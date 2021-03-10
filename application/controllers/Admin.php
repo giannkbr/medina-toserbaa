@@ -14,8 +14,8 @@ class Admin extends CI_Controller
     public function index()
     {
         $data['title'] = 'Dashboard';
-        $data['user']  = $this->db->get_where('admin', ['username'
-        => $this->session->userdata('username')])->row_array();
+        $data['user']  = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['karyawan'] = $this->db->count_all('karyawan');
 
         $this->load->view('admin/dashboard', $data);
     }

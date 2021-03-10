@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+date_default_timezone_set('Asia/Jakarta');
 class Masterabsensi extends CI_Controller
 {
     public function __construct()
@@ -71,7 +72,8 @@ class Masterabsensi extends CI_Controller
         if (!$cek_id) {
             $this->session->set_flashdata('messageAlert', $this->messageAlert('error', 'absen gagal data QR tidak ditemukan'));
             redirect($_SERVER['HTTP_REFERER']);
-        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && $cek_kehadiran->status == 'masuk') {
+
+        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && $cek_kehadiran->status == 'masuk' && date('h:i:s') >='11:00:00' ) {
             $data = array(
                 'jam_keluar' => $jam_klr,
                 'status' => 'pulang',
@@ -79,11 +81,19 @@ class Masterabsensi extends CI_Controller
             $this->M_absen->absen_pulang($result_code, $data);
             $this->session->set_flashdata('messageAlert', $this->messageAlert('success', 'absen pulang'));
             redirect($_SERVER['HTTP_REFERER']);
+
         } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar != '00:00:00' && $cek_kehadiran->status == 'pulang') {
-            $this->session->set_flashdata('messageAlert', $this->messageAlert('warning', 'sudah absen'));
+            $this->session->set_flashdata('messageAlert', $this->messageAlert('warning', 'sudah absen pulang'));
             redirect($_SERVER['HTTP_REFERER']);
             return false;
-        } else {
+
+        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && date('h:i:s') >='08:00:00' && date('h:i:s') <='11:00:00') {
+            $this->session->set_flashdata('messageAlert', $this->messageAlert('warning', 'sudah absen masuk'));
+            redirect($_SERVER['HTTP_REFERER']);
+            return false;
+        }
+
+        else {
             $data = array(
                 'username' => $result_code,
                 'tanggal' => $tgl,

@@ -24,6 +24,8 @@
                             <th>Id</th>
                             <th>username</th>
                             <th>Tanggal</th>
+                            <th>Jam Masuk</th>
+                            <th>Jam Keluar</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -34,6 +36,8 @@
                                 <td><?= $a['id_absen'] ?></td>
                                 <td><?= $a['username'] ?></td>
                                 <td><?= $a['tanggal'] ?></td>
+                                <td><?= $a['jam_masuk'] ?></td>
+                                <td><?= $a['jam_keluar'] ?></td>
                                 <td><?= $a['status'] ?></td>
                                 <td>
                                     <a href="<?php echo site_url('masterkaryawan/hapuskaryawan/' . $a['id_absen']); ?>" onclick="return confirm('kamu yakin akan menghapus  ?');" class="badge badge-danger"><i class="fas fa-trash"></i> hapus</a></td>
