@@ -121,7 +121,7 @@ class Masterabsensi extends CI_Controller
         $this->load->model('M_absen');
         $data['title'] = 'histori Absensi';
         $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
-        $data['absensi'] = $this->M_absen->tampil_data()->result_array();
+        $data['absensi'] = $this->M_absen->joinAbsen()->result_array();
         $this->load->view('admin/absensi/historiabsensi', $data);
     }
 

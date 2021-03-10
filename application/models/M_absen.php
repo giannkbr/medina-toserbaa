@@ -80,10 +80,13 @@ class M_absen extends CI_Model
             ->update('absen', $data);
     }
 
-    public function bulan()
+    public function joinAbsen()
     {
-        $this->db->query("SELECT MONTH() FROM absensi");
-
+        $this->db->select('*');
+        $this->db->from('absen');
+        $this->db->join('karyawan','karyawan.id = absen.id_karyawan');
+        $this->db->join('jabatan','jabatan.id_jabatan = karyawan.jabatan');
+        return $this->db->get();
     }
 }
 

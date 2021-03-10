@@ -23,6 +23,7 @@
                         <tr>
                             <th>Id</th>
                             <th>username</th>
+                            <th>Jabatan</th>
                             <th>Tanggal</th>
                             <th>Jam Masuk</th>
                             <th>Jam Keluar</th>
@@ -35,6 +36,7 @@
                             <tr>
                                 <td><?= $a['id_absen'] ?></td>
                                 <td><?= $a['username'] ?></td>
+                                <td><?= $a['nama_jabatan'] ?></td>
                                 <td><?= $a['tanggal'] ?></td>
                                 <td><?= $a['jam_masuk'] ?></td>
                                 <td><?= $a['jam_keluar'] ?></td>
