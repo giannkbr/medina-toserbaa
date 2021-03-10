@@ -28,7 +28,7 @@ class M_absen extends CI_Model
         $this->db->where($where);
         $this->db->delete($table);
         $this->db->query("SET @num := 0;");
-        $this->db->query("UPDATE absen SET id = @num := (@num+1);");
+        $this->db->query("UPDATE absen SET id_absen = @num := (@num+1);");
         $this->db->query("ALTER TABLE absen AUTO_INCREMENT = 1;");
     }
 

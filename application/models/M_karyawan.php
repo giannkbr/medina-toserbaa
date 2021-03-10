@@ -42,4 +42,12 @@ class M_karyawan extends CI_Model
         $this->db->where($where);
         $this->db->update($table, $data);
     }
+
+    public function joinJabatan()
+    {
+        $this->db->select('*');
+        $this->db->from('karyawan');
+        $this->db->join('jabatan','jabatan.id_jabatan = karyawan.jabatan');
+        return $this->db->get();
+    }
 }

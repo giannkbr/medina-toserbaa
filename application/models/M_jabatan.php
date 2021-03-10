@@ -39,4 +39,6 @@ class M_jabatan extends CI_Model
         $this->db->where($where);
         $this->db->update($table, $data);
     }
+
+    
 }

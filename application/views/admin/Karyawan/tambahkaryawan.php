@@ -26,6 +26,16 @@
                 <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
             </div>
 
+            <div class="form-group">
+                        <select name="id_jabatan" class="form-control form-control-user">
+                            <option value="">Pilih Jabatan</option>
+                            <?php
+                            foreach ($jabatan as $j) { ?>
+                                <option value="<?= $j['id_jabatan']; ?>"><?= $j['nama_jabatan']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
 
             <div class="row">
                 <div class="form-group col-6">

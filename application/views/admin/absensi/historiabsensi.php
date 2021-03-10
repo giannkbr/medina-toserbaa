@@ -40,7 +40,7 @@
                                 <td><?= $a['jam_keluar'] ?></td>
                                 <td><?= $a['status'] ?></td>
                                 <td>
-                                    <a href="<?php echo site_url('masterkaryawan/hapuskaryawan/' . $a['id_absen']); ?>" onclick="return confirm('kamu yakin akan menghapus  ?');" class="badge badge-danger"><i class="fas fa-trash"></i> hapus</a></td>
+                                    <a href="<?php echo site_url('masterabsensi/hapusabsensi/' . $a['id_absen']); ?>" onclick="return confirm('kamu yakin akan menghapus  ?');" class="badge badge-danger"><i class="fas fa-trash"></i> hapus</a></td>
                                 </tr>
 
                             <?php } ?>

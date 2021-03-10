@@ -106,6 +106,16 @@ class Masterabsensi extends CI_Controller
         }
     }
 
+    public function hapusabsensi($id)
+    {
+        $this->load->model('M_absen');
+        $data['absen'] = $this->M_absen->absenWhere(['id_absen' => $this->uri->segment(3)])->row_array();
+        $where = array('id_absen' => $id);
+        $this->M_absen->delete_absen($where, 'absen');
+        $this->session->set_flashdata('user-delete', 'berhasil');
+        redirect('historiabsensi');
+    }
+
      public function historiabsensi()
     {
         $this->load->model('M_absen');

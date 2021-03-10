@@ -16,7 +16,7 @@ class Masterkaryawan extends CI_Controller
         $this->load->model('M_karyawan');
         $data['title'] = 'Data Karyawan';
         $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
-        $data['karyawan'] = $this->M_karyawan->tampil_data()->result_array();
+        $data['karyawan'] = $this->M_karyawan->joinJabatan()->result_array();
 
         $this->load->view('admin/Karyawan/datakaryawan', $data);
     }
@@ -24,9 +24,12 @@ class Masterkaryawan extends CI_Controller
     public function tambahkaryawan()
     {
      $this->load->model('M_karyawan');
+     $this->load->model('M_jabatan');
      $data['title'] = 'Tambah Karyawan';
      $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
      $data['karyawan'] = $this->M_karyawan->tampil_data()->result_array();
+     $data['jabatan'] = $this->M_jabatan->tampil_data()->result_array();
+
 
      $this->load->view('admin/Karyawan/tambahkaryawan', $data);
  }
@@ -41,6 +44,11 @@ class Masterkaryawan extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'required|trim|min_length[4]', [
             'required' => 'Harap isi kolom username.',
             'min_length' => 'Username terlalu pendek.',
+        ]);
+
+        $this->form_validation->set_rules('id_jabatan', 'Id_Jabatan', 'required', [
+            'required' => 'Harap isi kolom Jabatan.',
+            
         ]);
 
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]|matches[retype_password]', [
@@ -59,6 +67,7 @@ class Masterkaryawan extends CI_Controller
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'username' => htmlspecialchars($email),
+                'jabatan' => $this->input->post('id_jabatan', true),
                 'image' => 'default.jpg',
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'is_active' => 1,

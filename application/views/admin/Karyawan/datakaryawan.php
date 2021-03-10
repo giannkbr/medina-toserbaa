@@ -27,17 +27,20 @@
                             <th>Name</th>
                             <th>username</th>
                             <th>Image</th>
+                            <th>jabatan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($karyawan as $k) { ?>
+                        <?php foreach ($karyawan as $k) {
+                          ?>
                         <tr>
                             <td><?= $k['id'] ?></td>
                             <td><?= $k['nama'] ?></td>
                             <td><?= $k['username'] ?></td>
                             <td><img src="<?= base_url('assets/images/') . $k['image']; ?>"
-                                    class="img-fluid img-thumbnail" width="200" height="40" alt="..."></td>
+                                    class="img-fluid img-thumbnail" width="200" height="40" alt="..."></td>                                
+                            <td><?= $k['nama_jabatan'] ?></td>       
                             <td><a href="<?php echo site_url('masterkaryawan/updatekaryawan/' . $k['id']); ?>"
                                     class="btn btn-info"><i class="fas fa-edit"></i>Ubah</a>
                                 <a href="<?php echo site_url('masterkaryawan/hapuskaryawan/' . $k['id']); ?>"
@@ -45,7 +48,8 @@
                                     class="btn btn-danger"><i class="fas fa-trash"></i> hapus</a></td>
                         </tr>
 
-                        <?php } ?>
+                        <?php }
+                         ?>
                     </tbody>
                 </table>
             </div>
