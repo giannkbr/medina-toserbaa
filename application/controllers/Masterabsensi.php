@@ -73,7 +73,7 @@ class Masterabsensi extends CI_Controller
             $this->session->set_flashdata('messageAlert', $this->messageAlert('error', 'absen gagal data QR tidak ditemukan'));
             redirect($_SERVER['HTTP_REFERER']);
 
-        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && $cek_kehadiran->status == 'masuk' && date('h:i:s') >='11:00:00' ) {
+        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && $cek_kehadiran->status == 'masuk' && date('h:i:s') >='16:00:00' ) {
             $data = array(
                 'jam_keluar' => $jam_klr,
                 'status' => 'pulang',
@@ -106,15 +106,7 @@ class Masterabsensi extends CI_Controller
         }
     }
 
-    public function hapusabsensi($id)
-    {
-        $this->load->model('M_absen');
-        $data['absen'] = $this->M_absen->absenWhere(['id_absen' => $this->uri->segment(3)])->row_array();
-        $where = array('id_absen' => $id);
-        $this->M_absen->delete_absen($where, 'absen');
-        $this->session->set_flashdata('user-delete', 'berhasil');
-        redirect('historiabsensi');
-    }
+    
 
      public function historiabsensi()
     {
@@ -123,6 +115,16 @@ class Masterabsensi extends CI_Controller
         $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
         $data['absensi'] = $this->M_absen->joinAbsen()->result_array();
         $this->load->view('admin/absensi/historiabsensi', $data);
+    }
+
+    public function hapusabsensi($id)
+    {
+        $this->load->model('M_absen');
+        $data['absen'] = $this->M_absen->absenWhere(['id_absen' => $this->uri->segment(3)])->row_array();
+        $where = array('id_absen' => $id);
+        $this->M_absen->delete_absen($where, 'absen');
+        $this->session->set_flashdata('user-delete', 'berhasil');
+        redirect('masterabsensi/historiabsensi');
     }
 
 

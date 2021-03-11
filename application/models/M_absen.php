@@ -46,6 +46,7 @@ class M_absen extends CI_Model
     public function cek_id($username)
     {
         $query_str =
+            
             $this->db->where('username', $username)
             ->get('karyawan');
         if ($query_str->num_rows() > 0) {
@@ -58,6 +59,7 @@ class M_absen extends CI_Model
     public function cek_kehadiran($username, $tgl)
     {
         $query_str =
+            
             $this->db->where('username', $username)
             ->where('tanggal', $tgl)->get('absen');
         if ($query_str->num_rows() > 0) {
@@ -75,7 +77,9 @@ class M_absen extends CI_Model
      public function absen_pulang($username, $data)
     {
         $tgl = date('Y-m-d');
-        return $this->db->where('username', $username)
+        return
+        
+        $this->db->where('username', $username)
             ->where('tanggal', $tgl)
             ->update('absen', $data);
     }
@@ -84,7 +88,7 @@ class M_absen extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('absen');
-        $this->db->join('karyawan','karyawan.id = absen.id_karyawan');
+        $this->db->join('karyawan','karyawan.username = absen.username');
         $this->db->join('jabatan','jabatan.id_jabatan = karyawan.jabatan');
         return $this->db->get();
     }
