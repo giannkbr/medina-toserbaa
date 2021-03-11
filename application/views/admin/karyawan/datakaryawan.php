@@ -27,7 +27,7 @@
                             <th>Name</th>
                             <th>username</th>
                             <th>Image</th>
-                            <th>jabatan</th>
+                            <th>Jabatan</th>
                             <th>Action</th>
                         </tr>
                     </thead>

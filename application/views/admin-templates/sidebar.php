@@ -52,10 +52,10 @@
          <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <!-- <h6 class="collapse-header">Karyawan</h6> -->
-                 <a class="collapse-item" href="<?= base_url('masterabsensi/historiabsensi') ?>">  <i class="fas fa-fw fa-table"></i>histori Absensi</a>
-                 <a class="collapse-item" href="<?= base_url('masterabsensi/rekapabsensi') ?>">  <i class="fas fa-fw fa-table"></i>rekap Absensi</a>
-                 <a class="collapse-item" href="<?= base_url('masterabsensi') ?>"><i class="fas fa-fw fa-users"></i>Ambil Qr</a>
-                 <a class="collapse-item" href="<?= base_url('masterabsensi/scanqr') ?>"><i class="fas fa-fw fa-users"></i>Scan Qr</a>
+                 <a class="collapse-item" href="<?= base_url('masterabsensi/historiabsensi') ?>">  <i class="fas fa-fw fa-table"></i> Histori Absensi</a>
+                 <a class="collapse-item" href="<?= base_url('masterabsensi/rekapabsensi') ?>">  <i class="fas fa-fw fa-table"></i> Rekap Absensi</a>
+                 <a class="collapse-item" href="<?= base_url('masterabsensi') ?>"><i class="fas fa-fw fa-users"></i> Ambil Qr</a>
+                 <a class="collapse-item" href="<?= base_url('masterabsensi/scanqr') ?>"><i class="fas fa-fw fa-users"></i> Scan Qr</a>
              </div>
 
          </div>

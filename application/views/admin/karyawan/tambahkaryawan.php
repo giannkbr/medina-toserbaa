@@ -16,26 +16,28 @@
         <form method="POST" action="<?= base_url('masterkaryawan/tambahkaryawanAct') ?>">
             <div id="" class="form-group">
                 <label for="nip">Nama Lengkap</label>
-                <input type="text" autocomplete="off" class="form-control effect-9" name="nama" id="nama_lengkap" value="<?= set_value('nama'); ?>">
+                <input type="text" autocomplete="off" class="form-control effect-9" name="nama" id="nama_lengkap"
+                    value="<?= set_value('nama'); ?>">
                 <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
             </div>
 
             <div id="" class="form-group">
                 <label for="nip">Username</label>
-                <input type="text" autocomplete="off" class="form-control effect-9" name="username" id="username" value="<?= set_value('username'); ?>">
+                <input type="text" autocomplete="off" class="form-control effect-9" name="username" id="username"
+                    value="<?= set_value('username'); ?>">
                 <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
             </div>
 
             <div class="form-group">
-                        <select name="id_jabatan" class="form-control form-control-user">
-                            <option value="">Pilih Jabatan</option>
-                            <?php
+                <label for="jabatan">Jabatan</label>
+                <select name="id_jabatan" class="form-control form-control-user">
+                    <option value="">Pilih Jabatan</option>
+                    <?php
                             foreach ($jabatan as $j) { ?>
-                                <option value="<?= $j['id_jabatan']; ?>"><?= $j['nama_jabatan']; ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-
+                    <option value="<?= $j['id_jabatan']; ?>"><?= $j['nama_jabatan']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
 
             <div class="row">
                 <div class="form-group col-6">
@@ -57,10 +59,10 @@
                 </label>
             </div>
             <p class="terms">Dengan mendaftar anda menyetujui <i>privasi dan persyaratan ketentuan
-            hukum kami </i>
-            baca selengkapnya <a href="#"> disini</a></p>
+                    hukum kami </i>
+                baca selengkapnya <a href="#"> disini</a></p>
             <button type="submit" class="btn btn-primary btn-lg btn-block">
-                Daftar ⭢
+                Tambah Data
             </button>
         </form>
     </div>
