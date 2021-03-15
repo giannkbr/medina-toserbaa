@@ -44,10 +44,13 @@
                     placeholder="To: yyyy-mm-dd"> -->
 
 
-                    <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0">
+
+
+                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Username</th>
                                 <th>Tanggal</th>
                                 <th>Jam Masuk</th>
                                 <th>Jam Keluar</th>
@@ -59,6 +62,7 @@
                             <?php foreach ($absen as $a) { ?>
                                 <tr>
                                     <td><?= $a['id_absen'] ?></td>
+                                    <td><?= $a['username'] ?></td>
                                     <td><?= $a['tanggal'] ?></td>
                                     <td><?= $a['jam_masuk'] ?></td>
                                     <td><?= $a['jam_keluar'] ?></td>

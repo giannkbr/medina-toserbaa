@@ -130,15 +130,31 @@ class Masterabsensi extends CI_Controller
 
     public function rekapabsensi()
     {
-        $this->load->model('M_absen');
-        $this->load->model('M_karyawan');
+        $this->load->model('M_jabatan');
         $data['title'] = 'rekap Absensi';
         $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
-        $data['karyawan'] = $this->M_karyawan->tampil_data()->result_array();
-        $data['absensi'] = $this->M_absen->tampil_data()->result_array();
+        $data['jabatan'] = $this->M_jabatan->tampil_data()->result_array();
         $this->load->view('admin/absensi/rekapabsensi', $data);
     }
 
+
+    public function rekapabsensidetail()
+    {
+        $this->load->model('M_karyawan');
+        $data['title'] = 'rekap Absensi Detail';
+        $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
+        $data['karyawan'] = $this->M_karyawan->karyawanWhere(['jabatan' => $this->uri->segment(3)])->result_array();
+        $this->load->view('admin/absensi/rekapabsensidetail', $data);
+    }
+
+    public function rekapabsensiperorang()
+    {
+        $this->load->model('M_absen');
+        $data['title'] = 'rekap Absensi Perorang';
+        $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
+        $data['absen'] = $this->M_absen->absenWhere(['username' => $this->uri->segment(3)])->result_array();
+        $this->load->view('admin/absensi/rekapabsensiperorang', $data);
+    }
     
 
 }

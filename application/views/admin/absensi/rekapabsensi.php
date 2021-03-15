@@ -23,20 +23,15 @@
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
-                            <th>username</th>
-                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($karyawan as $k) { ?>
+                        <?php foreach ($jabatan as $j) { ?>
                         <tr>
-                            <td><?= $k['id'] ?></td>
-                            <td><?= $k['nama'] ?></td>
-                            <td><?= $k['username'] ?></td>
-                            <td><img src="<?= base_url('assets/images/') . $k['image']; ?>"
-                                    class="img-fluid img-thumbnail" width="200" height="40" alt="..."></td>
-                            <td><a href="<?php echo site_url('masterabsensi/rekapabsensi/' . $k['id']); ?>"
+                            <td><?= $j['id_jabatan'] ?></td>
+                            <td><?= $j['nama_jabatan'] ?></td>
+                            <td><a href="<?php echo site_url('masterabsensi/rekapabsensidetail/' . $j['id_jabatan']); ?>"
                                     class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> lihat</a></td>
                         </tr>
 

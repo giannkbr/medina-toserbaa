@@ -52,13 +52,13 @@
                 </li>
 
                 <!-- Nav Item - Alerts -->
-                <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <?php
                         if (function_exists('date_default_timezone_set'))
                             date_default_timezone_set('Asia/Jakarta');
                         ?>
                     <span id="clock">&nbsp;</span>
-                </a> -->
+                </a>
 
 
                 <div class="topbar-divider d-none d-sm-block"></div>
