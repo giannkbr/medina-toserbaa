@@ -93,12 +93,13 @@ class M_absen extends CI_Model
         return $this->db->get();
     }
 
-    public function whereTanggal($awal, $akhir,$table)
+    public function whereTanggal($awal, $akhir,$nama)
     {
 
         // $this->db->query("SELECT * FROM absen WHERE tanggal BETWEEN  AND ;");
         $this->db->select('*');
         $this->db->from('absen');
+        $this->db->where("tanggal BETWEEN '$awal' AND '$akhir'");
         $this->db->where("tanggal BETWEEN '$awal' AND '$akhir'");
 
         return $this->db->get();

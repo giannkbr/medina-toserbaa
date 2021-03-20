@@ -46,6 +46,7 @@
                     <form method="post" action="<?= base_url('masterabsensi/rekapabsensiperorangfilter') ?>">
                         <input type="date" name="awal" id="awal" >
                         <input type="date" name="akhir" id="akhir" >
+                        <input type="text" name="nama" value="<?= $nama ?>" hidden>
 
                         <button type="submit" formtarget="_blank"> Filter </button>
                         
