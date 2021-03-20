@@ -92,5 +92,16 @@ class M_absen extends CI_Model
         $this->db->join('jabatan','jabatan.id_jabatan = karyawan.jabatan');
         return $this->db->get();
     }
+
+    public function whereTanggal($awal, $akhir,$table)
+    {
+
+        // $this->db->query("SELECT * FROM absen WHERE tanggal BETWEEN  AND ;");
+        $this->db->select('*');
+        $this->db->from('absen');
+        $this->db->where("tanggal BETWEEN '$awal' AND '$akhir'");
+
+        return $this->db->get();
+    }
 }
 

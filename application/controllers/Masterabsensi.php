@@ -155,6 +155,17 @@ class Masterabsensi extends CI_Controller
         $data['absen'] = $this->M_absen->absenWhere(['username' => $this->uri->segment(3)])->result_array();
         $this->load->view('admin/absensi/rekapabsensiperorang', $data);
     }
+
+    public function rekapabsensiperorangfilter()
+    {
+        $awal = $this->input->post('awal');
+        $akhir = $this->input->post('akhir');
+        $this->load->model('M_absen');
+        $data['title'] = 'rekap Absensi Perorang';
+        $data['user']  = $this->db->get_where('admin', ['username'=> $this->session->userdata('username')])->row_array();
+        $data['absen'] = $this->M_absen->whereTanggal($awal, $akhir,'tanggal')->result_array();
+        $this->load->view('admin/absensi/rekapabsensiperorangfilter', $data);
+    }
     
 
 }

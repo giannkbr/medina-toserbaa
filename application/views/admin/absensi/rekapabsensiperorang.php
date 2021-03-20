@@ -43,7 +43,13 @@
                     class="date-range-filter"
                     placeholder="To: yyyy-mm-dd"> -->
 
+                    <form method="post" action="<?= base_url('masterabsensi/rekapabsensiperorangfilter') ?>">
+                        <input type="date" name="awal" id="awal" >
+                        <input type="date" name="akhir" id="akhir" >
 
+                        <button type="submit" formtarget="_blank"> Filter </button>
+                        
+                    </form>
 
 
                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -55,7 +61,7 @@
                                 <th>Jam Masuk</th>
                                 <th>Jam Keluar</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -67,8 +73,7 @@
                                     <td><?= $a['jam_masuk'] ?></td>
                                     <td><?= $a['jam_keluar'] ?></td>
                                     <td><?= $a['status'] ?></td>
-                                    <td><a href="<?php echo site_url('masterabsensi/rekapabsensiperorang/' . $a['username']); ?>"
-                                        class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> lihat</a></td>
+                                    
                                     </tr>
 
                                 <?php } ?>
@@ -87,5 +92,11 @@
     
 
     <?php $this->view('admin-templates/footer') ?>
+
+
+
+    
+
+
     
     
