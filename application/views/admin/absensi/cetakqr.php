@@ -16,7 +16,8 @@
    <img class="img-responsive" src="<?php echo base_url('assets/img/qrcode/') .  $karyawan['username']  . 'code.png'; ?>" />
    </div> -->
 
-   <div id="print-area">
+
+   <div class="container-fluid text-center" id="print-area" >
         <!-- Widget: user widget style 1 -->
         <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -27,10 +28,11 @@
                 <!-- /.widget-user-image -->
                 <h3 class="widget-user-username"><?php echo $karyawan['username']; ?></h3>
                 <h5 class="widget-user-desc"><?php echo $karyawan['nama']; ?></h5>
-                <button onclick="printDiv('print-area')" class='pull-right'><i class='fa fa-print'></i> Print</button>
+                
             </div>
         </div>
     </div>
+    <button onclick="printDiv('print-area')" class='pull-right'><i class='fa fa-print'></i> Print</button>
 
 </div>
 <!-- /.container-fluid -->
@@ -47,6 +49,7 @@
         document.body.innerHTML = originalContents;
     }
 </script>
+
 
 
 <?php $this->view('admin-templates/footer') ?>

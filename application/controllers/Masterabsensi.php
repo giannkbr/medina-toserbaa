@@ -65,15 +65,17 @@ class Masterabsensi extends CI_Controller
         $this->load->model('M_absen');
         $result_code = $this->input->post('username');
         $tgl = date('Y-m-d');
-        $jam_msk = date('h:i:s');
-        $jam_klr = date('h:i:s');
+        $jam_msk = date('H:i:s');
+        $jam_klr = date('H:i:s');
         $cek_id = $this->M_absen->cek_id($result_code);
         $cek_kehadiran = $this->M_absen->cek_kehadiran($result_code, $tgl);
         if (!$cek_id) {
             $this->session->set_flashdata('messageAlert', $this->messageAlert('error', 'absen gagal data QR tidak ditemukan'));
             redirect($_SERVER['HTTP_REFERER']);
 
-        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && $cek_kehadiran->status == 'masuk' && date('h:i:s') >='16:00:00' ) {
+        }
+
+         elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && $cek_kehadiran->status == 'masuk' && date('H:i:s') >='16:00:00' ) {
             $data = array(
                 'jam_keluar' => $jam_klr,
                 'status' => 'pulang',
@@ -87,12 +89,25 @@ class Masterabsensi extends CI_Controller
             redirect($_SERVER['HTTP_REFERER']);
             return false;
 
-        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && date('h:i:s') >='08:00:00' && date('h:i:s') <='16:00:00') {
+        } elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk != '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00')         {
             $this->session->set_flashdata('messageAlert', $this->messageAlert('warning', 'sudah absen masuk'));
             redirect($_SERVER['HTTP_REFERER']);
             return false;
         }
 
+        elseif ($cek_kehadiran && $cek_kehadiran->jam_masuk == '00:00:00' && $cek_kehadiran->jam_keluar == '00:00:00' && date('H:i:s') >= date('H:i:s',strtotime('09:00:00')) ) {
+            $data = array(
+                'username' => $result_code,
+                'tanggal' => $tgl,
+                'jam_masuk' => $jam_msk,
+                'status' => 'Terlambat',
+            );
+            $this->M_absen->absen_masuk($data);
+            $this->session->set_flashdata('messageAlert', $this->messageAlert('warning', 'Anda Terlambat'));
+            redirect($_SERVER['HTTP_REFERER']);;
+        }
+
+    
         else {
             $data = array(
                 'username' => $result_code,
